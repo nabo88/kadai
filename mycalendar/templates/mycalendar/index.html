@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>MyCalendar</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'mycalendar/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mycalendar/style.css' %}">
 </head>
-<body style="text-align: center;">
-  {{ month_data.year }} {{ month_data.month }}<br>
-  {{ month_data.week }}
-  <h1>TEST</h1>
+<body>
+{{ cal.now }}<br>
+{{ cal.week }}<br>
+{{ cal.days }}
 </body>
 </html>

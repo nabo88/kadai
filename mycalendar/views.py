@@ -1,21 +1,30 @@
-from django.views import generic
+import datetime
 
-from calendar import Calendar
-from datetime import date
+from django.views.generic import TemplateView
+
+import calendar
 
 
-class CalendarView(generic.TemplateView):
+class CalendarView1(TemplateView):
     template_name = 'mycalendar/index.html'
 
-    def get_month_data(self):
-        data = {
-            'year': self.kwargs.get('year'),
-            'month': self.kwargs.get('month'),
-            'week': ['Mon', 'Tue', "Wed", "Thu", "Fri", "Sat", "Sun"]
-        }
-        return data
+
+class CalendarView2(TemplateView):
+    template_name = 'mycalendar/index.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['month_data'] = self.get_month_data()
+
+        year = self.kwargs.get('year')
+        month = self.kwargs.get('month')
+        now = datetime.date.today()
+        week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        days = calendar.monthcalendar(year, month)
+
+
+        context['cal'] = {
+            'now': now,
+            'week': week,
+            'days': days,
+        }
         return context
