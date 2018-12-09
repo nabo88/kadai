@@ -4,6 +4,6 @@ from mycalendar.views import CalendarView1, CalendarView2
 app_name = 'mycalendar'
 
 urlpatterns = [
-    path('', CalendarView1.as_view(), name='calview1'),
-    path('<int:year>/<int:month>', CalendarView2.as_view(), name = 'calv2')
+    path('', CalendarView1.as_view(), name='calv1'),
+    path('<int:year>/<int:month>', CalendarView2.as_view(), name='calv2')
 ]

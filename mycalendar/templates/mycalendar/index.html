@@ -8,8 +8,13 @@
     <link rel="stylesheet" type="text/css" href="{% static 'mycalendar/style.css' %}">
 </head>
 <body>
-{{ cal.now }}<br>
+<a href="{% url 'mycalendar:calv2' cal.previous_year cal.previous_month %}">previous month</a>
+{{ cal.now }}
+<a href="{% url 'mycalendar:calv2' cal.next_year cal.next_month %}">next month</a>
+<br>
 {{ cal.week }}<br>
-{{ cal.days }}
+{{ cal.days }}<br>
+{{ cal.next_month }}<br>
+{{ cal.previous_month }}
 </body>
 </html>
