@@ -20,7 +20,8 @@ class CalendarView2(TemplateView):
         now = datetime.date.today()
         week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
         days = calendar.monthcalendar(year, month)
-
+        next_month = get_next_month(year, month)
+        previous_month = get_prevous_month(year, month)
 
         context['cal'] = {
             'now': now,
