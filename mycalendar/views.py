@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 import calendar
 
 
-def get_next(year,month):
+def get_next(year, month):
     if month == 12:
         return year+1, 1
     else:
