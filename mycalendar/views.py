@@ -1,7 +1,7 @@
-from django.views.generic import TemplateView
-
-
+from datetime import date
 import calendar
+
+from django.views.generic import TemplateView
 
 
 def get_next(year, month):
@@ -18,18 +18,21 @@ def get_previous(year, month):
         return year, month-1
 
 
-class CalendarView1(TemplateView):
-    template_name = 'mycalendar/index.html'
-
-
-class CalendarView2(TemplateView):
+class CalendarView(TemplateView):
     template_name = 'mycalendar/index.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        year = self.kwargs.get('year')
-        month = self.kwargs.get('month')
+        if self.kwargs.get('year'):
+            year = self.kwargs.get('year')
+        else:
+            year = date.today().year
+
+        if self.kwargs.get('month'):
+            month = self.kwargs.get('month')
+        else:
+            month = date.today().month
 
         week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
         days = calendar.monthcalendar(year, month)
@@ -44,5 +47,5 @@ class CalendarView2(TemplateView):
             'next_month': next_month,
             'previous_year': previous_year,
             'previous_month': previous_month,
-        }
+         }
         return context

@@ -1,9 +1,9 @@
 from django.urls import path
-from mycalendar.views import CalendarView1, CalendarView2
+from mycalendar.views import CalendarView
 
 app_name = 'mycalendar'
 
 urlpatterns = [
-    path('', CalendarView1.as_view(), name='calv1'),
-    path('<int:year>/<int:month>', CalendarView2.as_view(), name='calv2')
+    path('', CalendarView.as_view(), name='calv'),
+    path('<int:year>/<int:month>', CalendarView.as_view(), name='calv')
 ]
