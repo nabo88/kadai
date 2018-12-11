@@ -34,14 +34,12 @@ class CalendarView(TemplateView):
         else:
             month = date.today().month
 
-        week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
         days = calendar.monthcalendar(year, month)
         next_year, next_month = get_next(year, month)
         previous_year, previous_month = get_previous(year, month)
 
         context['cal'] = {
             'now': "{}年{}月".format(year, month),
-            'week': week,
             'days': days,
             'next_year': next_year,
             'next_month': next_month,

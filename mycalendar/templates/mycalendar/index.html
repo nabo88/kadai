@@ -8,28 +8,34 @@
     <link rel="stylesheet" type="text/css" href="{% static 'mycalendar/style.css' %}">
 </head>
 <body>
-<a href="{% url 'mycalendar:calv' cal.previous_year cal.previous_month %}">previous month</a>
-{{ cal.now }}
-<a href="{% url 'mycalendar:calv' cal.next_year cal.next_month %}">next month</a>
-<div class="wrapper">
-    <table>
-        <thead>
-        <tr>
-            {% for w in cal.week %}
-                <th>{{ w }}</th>
-            {% endfor %}
-        </tr>
-        </thead>
-        <tbody>
-        {% for days in cal.days %}
-            <tr>
-                {% for day in days %}
-                    <th>{{ day }}</th>
-                {% endfor %}
-            </tr>
+<div class="now">{{ cal.now }}</div>
+<table class="table">
+    <thead class="thead">
+    <tr>
+        <th class="th">月</th>
+        <th class="th">火</th>
+        <th class="th">水</th>
+        <th class="th">木</th>
+        <th class="th">金</th>
+        <th class="th saturday">土</th>
+        <th class="th sunday">日</th>
+    </tr>
+    </thead>
+    <tbody class="tbody">
+    {% for days in cal.days %}
+    <tr>
+        {% for day in days %}
+            {% if day == 0 %}
+                <td class="td"></td>
+            {% else %}
+                <td class="td">{{ day }}</td>
+            {% endif %}
         {% endfor %}
-        </tbody>
-    </table>
-</div>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<a class="month" href="{% url 'mycalendar:calv' cal.previous_year cal.previous_month %}">前月</a>
+<a class="month" href="{% url 'mycalendar:calv' cal.next_year cal.next_month %}">翌月</a>
 </body>
 </html>
