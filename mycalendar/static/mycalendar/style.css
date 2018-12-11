@@ -5,54 +5,51 @@ html {
 }
 
 body {
-  width: 50%;
-  margin: 100px auto;
-  font-size: 1.8rem;
-  text-align: center;
-  font-family: "Hiragino Kaku Gothic ProN",  Meiryo,  sans-serif;
+    width: 50%;
+    margin: 100px auto;
+    background-color: #FCFBFC;
+    font-size: 1.8rem;
+    text-align: center;
+    font-family: "Hiragino Kaku Gothic ProN",  Meiryo,  sans-serif;
 }
 
 .table {
-  width: 100%;
-  height: 100%;
-  border: solid;
+    width: 100%;
+    height: 100%;
+    border: solid 1px #000;
 }
 
 .now {
-  margin: 0 0 30px;
-  letter-spacing: 1px;
-  font-size: 2.1rem;
+    margin: 0 0 30px;
+    letter-spacing: 2px;
+    font-size: 2.1rem;
 }
+
 .now::before,
 .now::after {
-  content: '';
-  display: inline-block;
-  width: 140px;
-  height: 3px;
-  margin: 0 30px;
-  background-color: #000;
-  vertical-align: middle;
+    content: '';
+    display: inline-block;
+    width: 140px;
+    height: 2px;
+    margin: 0 30px;
+    background-color: #000;
+    vertical-align: middle;
 }
 
 .th {
- border: solid 2px #000;
- padding: 17px 10px;
-}
-
-.saturday {
-  background-color: #1987E5;
-}
-
-.sunday {
-  background-color: #F92500;
+    padding: 17px 10px;
 }
 
 .td {
-  border: solid 2px #000;
-  padding: 17px 10px;
+    border: solid 1px #000;
+    padding: 20px 10px;
+}
+
+.today {
+    background-color: #B9C998;
 }
 
 .month {
-  display: inline-block;
-  margin: 20px 20px 10px;
+    display: inline-block;
+    margin: 20px 70px;
 }

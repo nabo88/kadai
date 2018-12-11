@@ -24,6 +24,8 @@ class CalendarView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
+        today = ''
+
         if self.kwargs.get('year'):
             year = self.kwargs.get('year')
         else:
@@ -34,6 +36,9 @@ class CalendarView(TemplateView):
         else:
             month = date.today().month
 
+        if date.today() == date(year, month, date.today().day):
+            today = date.today().day
+
         days = calendar.monthcalendar(year, month)
         next_year, next_month = get_next(year, month)
         previous_year, previous_month = get_previous(year, month)
@@ -41,6 +46,7 @@ class CalendarView(TemplateView):
         context['cal'] = {
             'now': "{}年{}月".format(year, month),
             'days': days,
+            'today': today,
             'next_year': next_year,
             'next_month': next_month,
             'previous_year': previous_year,

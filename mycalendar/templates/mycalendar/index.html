@@ -17,8 +17,8 @@
         <th class="th">水</th>
         <th class="th">木</th>
         <th class="th">金</th>
-        <th class="th saturday">土</th>
-        <th class="th sunday">日</th>
+        <th class="th">土</th>
+        <th class="th">日</th>
     </tr>
     </thead>
     <tbody class="tbody">
@@ -27,6 +27,8 @@
         {% for day in days %}
             {% if day == 0 %}
                 <td class="td"></td>
+            {% elif day == cal.today%}
+                <td class="td today">{{ day }}</td>
             {% else %}
                 <td class="td">{{ day }}</td>
             {% endif %}
@@ -35,7 +37,7 @@
     {% endfor %}
     </tbody>
 </table>
-<a class="month" href="{% url 'mycalendar:calv' cal.previous_year cal.previous_month %}">前月</a>
-<a class="month" href="{% url 'mycalendar:calv' cal.next_year cal.next_month %}">翌月</a>
+<a class="month" href="{% url 'mycalendar:calv' cal.previous_year cal.previous_month %}">← 前月</a>
+<a class="month" href="{% url 'mycalendar:calv' cal.next_year cal.next_month %}">翌月 →</a>
 </body>
 </html>
