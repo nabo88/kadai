@@ -129,4 +129,7 @@ dmypy.json
 # Pycharm
 .idea
 idea/
+
+#heroku
+local_settings.py
 # End of https://www.gitignore.io/api/django
